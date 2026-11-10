@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js').catch(()=>{});window.addEventListener('offline',()=>{const b=document.querySelector('.badge');if(b)b.textContent='Piloto · sin conexión'});window.addEventListener('online',()=>{const b=document.querySelector('.badge');if(b)b.textContent='Piloto · demo local'});

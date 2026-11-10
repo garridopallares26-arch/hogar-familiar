@@ -1,0 +1,23 @@
+{
+  "name": "hogar-familiar",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler d1 migrations apply DB --remote && wrangler deploy",
+    "check": "node --check worker.mjs && node --check public/app.js && node --check public/auth-client.js"
+  },
+  "devDependencies": {
+    "wrangler": "4.158.0"
+  },
+  "cloudflare": {
+    "bindings": {
+      "DB": {
+        "description": "Base de datos privada de tu hogar. Cloudflare la crea en tu propia cuenta."
+      },
+      "INSTALL_KEY": {
+        "description": "Escribe una frase privada de al menos 24 caracteres. La necesitarás una sola vez para activar tu hogar. No uses tu contraseña de Cloudflare. No compartas esta frase con nadie."
+      }
+    }
+  }
+}

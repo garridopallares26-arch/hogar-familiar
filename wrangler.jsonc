@@ -1,0 +1,29 @@
+// Cloudflare sustituye el identificador provisional al crear tu base de datos.
+{
+  "name": "hogar-familiar",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-11-10",
+  "workers_dev": true,
+  "preview_urls": false,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": [
+      "/api/*"
+    ]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "hogar-familiar-db",
+      "database_id": "7b524fa7-ac64-4663-a6b6-1c85c2899cd5",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "triggers": {
+    "crons": [
+      "0 3 * * *"
+    ]
+  }
+}
